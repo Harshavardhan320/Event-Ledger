@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  # Account Service - Producer/Server
+  account-service:
+    build:
+      context: ./account-service
+      dockerfile: Dockerfile
+    container_name: account-service
+    ports:
+      - "8080:8012"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    networks:
+      - app-network
+    restart: unless-stopped
+
+  # Event Gateway Service - Consumer (FeignClient calls account-service)
+  event-gateway-service:
+    build:
+      context: ./event-gateway-service
+      dockerfile: Dockerfile
+    container_name: event-gateway-service
+    ports:
+      - "8081:8011"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+      - ACCOUNT_SERVICE_URL=http://account-service:8082
+    depends_on:
+      - account-service
+    networks:
+      - app-network
+    restart: unless-stopped
+
+networks:
+  app-network:
+    driver: bridge

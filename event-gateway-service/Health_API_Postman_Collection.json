@@ -1,0 +1,182 @@
+//{
+//  "info": {
+//    "name": "Event Gateway Service - Health API",
+//    "description": "Health check endpoints collection",
+//    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+//  },
+//  "item": [
+//    {
+//      "name": "Health API",
+//      "item": [
+//        {
+//          "name": "1. Basic Health Check",
+//          "request": {
+//            "method": "GET",
+//            "header": [
+//              {
+//                "key": "Accept",
+//                "value": "application/json"
+//              }
+//            ],
+//            "url": {
+//              "raw": "http://localhost:8080/api/v1/health",
+//              "protocol": "http",
+//              "host": [
+//                "localhost"
+//              ],
+//              "port": "8080",
+//              "path": [
+//                "api",
+//                "v1",
+//                "health"
+//              ]
+//            },
+//            "description": "Returns basic health status of the service"
+//          },
+//          "response": []
+//        },
+//        {
+//          "name": "2. Database Health Check",
+//          "request": {
+//            "method": "GET",
+//            "header": [
+//              {
+//                "key": "Accept",
+//                "value": "application/json"
+//              }
+//            ],
+//            "url": {
+//              "raw": "http://localhost:8080/api/v1/health/database",
+//              "protocol": "http",
+//              "host": [
+//                "localhost"
+//              ],
+//              "port": "8080",
+//              "path": [
+//                "api",
+//                "v1",
+//                "health",
+//                "database"
+//              ]
+//            },
+//            "description": "Verifies H2 database connectivity"
+//          },
+//          "response": []
+//        },
+//        {
+//          "name": "3. Readiness Check",
+//          "request": {
+//            "method": "GET",
+//            "header": [
+//              {
+//                "key": "Accept",
+//                "value": "application/json"
+//              }
+//            ],
+//            "url": {
+//              "raw": "http://localhost:8080/api/v1/health/ready",
+//              "protocol": "http",
+//              "host": [
+//                "localhost"
+//              ],
+//              "port": "8080",
+//              "path": [
+//                "api",
+//                "v1",
+//                "health",
+//                "ready"
+//              ]
+//            },
+//            "description": "Checks if service is ready to accept traffic"
+//          },
+//          "response": []
+//        },
+//        {
+//          "name": "4. Liveness Check",
+//          "request": {
+//            "method": "GET",
+//            "header": [
+//              {
+//                "key": "Accept",
+//                "value": "application/json"
+//              }
+//            ],
+//            "url": {
+//              "raw": "http://localhost:8080/api/v1/health/live",
+//              "protocol": "http",
+//              "host": [
+//                "localhost"
+//              ],
+//              "port": "8080",
+//              "path": [
+//                "api",
+//                "v1",
+//                "health",
+//                "live"
+//              ]
+//            },
+//            "description": "Verifies if service is alive and responsive"
+//          },
+//          "response": []
+//        },
+//        {
+//          "name": "5. Service Information",
+//          "request": {
+//            "method": "GET",
+//            "header": [
+//              {
+//                "key": "Accept",
+//                "value": "application/json"
+//              }
+//            ],
+//            "url": {
+//              "raw": "http://localhost:8080/api/v1/health/info",
+//              "protocol": "http",
+//              "host": [
+//                "localhost"
+//              ],
+//              "port": "8080",
+//              "path": [
+//                "api",
+//                "v1",
+//                "health",
+//                "info"
+//              ]
+//            },
+//            "description": "Returns service version, Java version, and configuration details"
+//          },
+//          "response": []
+//        },
+//        {
+//          "name": "6. Service Metrics",
+//          "request": {
+//            "method": "GET",
+//            "header": [
+//              {
+//                "key": "Accept",
+//                "value": "application/json"
+//              }
+//            ],
+//            "url": {
+//              "raw": "http://localhost:8080/api/v1/health/metrics",
+//              "protocol": "http",
+//              "host": [
+//                "localhost"
+//              ],
+//              "port": "8080",
+//              "path": [
+//                "api",
+//                "v1",
+//                "health",
+//                "metrics"
+//              ]
+//            },
+//            "description": "Returns JVM and runtime metrics for monitoring"
+//          },
+//          "response": []
+//        }
+//      ]
+//    }
+//  ]
+//}
+//
