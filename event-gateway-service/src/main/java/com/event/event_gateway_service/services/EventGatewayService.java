@@ -41,7 +41,8 @@ public class EventGatewayService {
         }
 
         Event event1 = getEventById(event.eventId());
-        if (event1 != null && !EventStatus.PROCESSED.equals(event1.getEventStatus())) {
+        if (event1 != null) {
+            log.warn("Duplicate Event found with existing ID, cannot process [ id: {} ]", event.eventId());
             return event1;
         }
 

@@ -39,19 +39,16 @@ public class AccountService {
         }
         BigDecimal balance = account.getBalance();
 
-        if(eventRequest.amount().equals(BigDecimal.ZERO)){
-            ResponseEntity.badRequest().body("Invalid Transaction Amount");
+        if(EventType.DEBIT.equals(eventRequest.type())){
+            if(account.getBalance().compareTo(eventRequest.amount()) <= 0){
+                return ResponseEntity.badRequest().body("Insufficient balance");
+            }
         }
 
         if(EventType.CREDIT.equals(eventRequest.type())){
             balance  = balance.add(eventRequest.amount());
         }else{
             balance= balance.subtract(eventRequest.amount());
-        }
-        if(EventType.DEBIT.equals(eventRequest.type())){
-            if(account.getBalance().compareTo(BigDecimal.ZERO) < 0 || account.getBalance().compareTo(BigDecimal.ZERO) == 0){
-                return ResponseEntity.badRequest().body("Invalid Transaction Amount");
-            }
         }
         account.setBalance(balance);
         Account saveAccount = accountRepository.save(account);
